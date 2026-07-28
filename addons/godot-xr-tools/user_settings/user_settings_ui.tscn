@@ -1,118 +1,121 @@
-[gd_scene load_steps=2 format=3 uid="uid://ytsxet2k47lj"]
+[gd_scene format=3 uid="uid://ytsxet2k47lj"]
 
 [ext_resource type="Script" uid="uid://5jvxgqcvblgd" path="res://addons/godot-xr-tools/user_settings/user_settings_ui.gd" id="1"]
 
-[node name="UserSettingsUI" type="TabContainer"]
+[node name="UserSettingsUI" type="TabContainer" unique_id=1548173120]
 offset_right = 214.0
 offset_bottom = 126.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 12
+current_tab = 0
 script = ExtResource("1")
 
-[node name="Input" type="MarginContainer" parent="."]
+[node name="Input" type="MarginContainer" parent="." unique_id=1426259197]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
+metadata/_tab_index = 0
 
-[node name="InputVBox" type="VBoxContainer" parent="Input"]
+[node name="InputVBox" type="VBoxContainer" parent="Input" unique_id=1203392015]
 layout_mode = 2
 
-[node name="SnapTurning" type="HBoxContainer" parent="Input/InputVBox"]
+[node name="SnapTurning" type="HBoxContainer" parent="Input/InputVBox" unique_id=1044212808]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Input/InputVBox/SnapTurning"]
+[node name="Label" type="Label" parent="Input/InputVBox/SnapTurning" unique_id=249664675]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Snap turning:"
 
-[node name="SnapTurningCB" type="CheckBox" parent="Input/InputVBox/SnapTurning"]
+[node name="SnapTurningCB" type="CheckBox" parent="Input/InputVBox/SnapTurning" unique_id=1862697226]
 layout_mode = 2
 
-[node name="yAxisDeadZone" type="HBoxContainer" parent="Input/InputVBox"]
+[node name="yAxisDeadZone" type="HBoxContainer" parent="Input/InputVBox" unique_id=48194351]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Input/InputVBox/yAxisDeadZone"]
+[node name="Label" type="Label" parent="Input/InputVBox/yAxisDeadZone" unique_id=1112478567]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Y axis dead zone"
 
-[node name="yAxisDeadZoneSlider" type="HSlider" parent="Input/InputVBox/yAxisDeadZone"]
+[node name="yAxisDeadZoneSlider" type="HSlider" parent="Input/InputVBox/yAxisDeadZone" unique_id=521509188]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 0.5
 step = 0.01
 value = 0.1
 
-[node name="xAxisDeadZone" type="HBoxContainer" parent="Input/InputVBox"]
+[node name="xAxisDeadZone" type="HBoxContainer" parent="Input/InputVBox" unique_id=1620587258]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Input/InputVBox/xAxisDeadZone"]
+[node name="Label" type="Label" parent="Input/InputVBox/xAxisDeadZone" unique_id=1509677413]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "X axis dead zone"
 
-[node name="xAxisDeadZoneSlider" type="HSlider" parent="Input/InputVBox/xAxisDeadZone"]
+[node name="xAxisDeadZoneSlider" type="HSlider" parent="Input/InputVBox/xAxisDeadZone" unique_id=349060625]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 0.5
 step = 0.01
 value = 0.2
 
-[node name="HapticsScale" type="HBoxContainer" parent="Input/InputVBox"]
+[node name="HapticsScale" type="HBoxContainer" parent="Input/InputVBox" unique_id=1593798328]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Input/InputVBox/HapticsScale"]
+[node name="Label" type="Label" parent="Input/InputVBox/HapticsScale" unique_id=1660510212]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Haptics Scale"
 
-[node name="HapticsScaleSlider" type="HSlider" parent="Input/InputVBox/HapticsScale"]
+[node name="HapticsScaleSlider" type="HSlider" parent="Input/InputVBox/HapticsScale" unique_id=1793445267]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="HSeparator" type="HSeparator" parent="Input/InputVBox"]
+[node name="HSeparator" type="HSeparator" parent="Input/InputVBox" unique_id=565170118]
 layout_mode = 2
 
-[node name="Buttons" type="HBoxContainer" parent="Input/InputVBox"]
+[node name="Buttons" type="HBoxContainer" parent="Input/InputVBox" unique_id=1167568159]
 layout_mode = 2
 alignment = 1
 
-[node name="Save" type="Button" parent="Input/InputVBox/Buttons"]
+[node name="Save" type="Button" parent="Input/InputVBox/Buttons" unique_id=417001560]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Apply"
 
-[node name="Reset" type="Button" parent="Input/InputVBox/Buttons"]
+[node name="Reset" type="Button" parent="Input/InputVBox/Buttons" unique_id=1800797321]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Reset"
 
-[node name="Player" type="MarginContainer" parent="."]
+[node name="Player" type="MarginContainer" parent="." unique_id=72366087]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
+metadata/_tab_index = 1
 
-[node name="PlayerVBox" type="VBoxContainer" parent="Player"]
+[node name="PlayerVBox" type="VBoxContainer" parent="Player" unique_id=202833946]
 layout_mode = 2
 
-[node name="PlayerHeight" type="HBoxContainer" parent="Player/PlayerVBox"]
+[node name="PlayerHeight" type="HBoxContainer" parent="Player/PlayerVBox" unique_id=88075920]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Player/PlayerVBox/PlayerHeight"]
+[node name="Label" type="Label" parent="Player/PlayerVBox/PlayerHeight" unique_id=395901897]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Height adjust:"
 
-[node name="PlayerHeightSlider" type="HSlider" parent="Player/PlayerVBox/PlayerHeight"]
+[node name="PlayerHeightSlider" type="HSlider" parent="Player/PlayerVBox/PlayerHeight" unique_id=1283575730]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 1.0
@@ -120,47 +123,48 @@ max_value = 2.5
 step = 0.05
 value = 1.0
 
-[node name="HSeparator" type="HSeparator" parent="Player/PlayerVBox"]
+[node name="HSeparator" type="HSeparator" parent="Player/PlayerVBox" unique_id=550127815]
 layout_mode = 2
 
-[node name="Buttons" type="HBoxContainer" parent="Player/PlayerVBox"]
+[node name="Buttons" type="HBoxContainer" parent="Player/PlayerVBox" unique_id=903829270]
 layout_mode = 2
 alignment = 1
 
-[node name="Save" type="Button" parent="Player/PlayerVBox/Buttons"]
+[node name="Save" type="Button" parent="Player/PlayerVBox/Buttons" unique_id=1971842535]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Apply"
 
-[node name="Reset" type="Button" parent="Player/PlayerVBox/Buttons"]
+[node name="Reset" type="Button" parent="Player/PlayerVBox/Buttons" unique_id=475384972]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Reset"
 
-[node name="WebXR" type="MarginContainer" parent="."]
+[node name="WebXR" type="MarginContainer" parent="." unique_id=1191752714]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
+metadata/_tab_index = 2
 
-[node name="WebXRVBox" type="VBoxContainer" parent="WebXR"]
+[node name="WebXRVBox" type="VBoxContainer" parent="WebXR" unique_id=719676130]
 layout_mode = 2
 
-[node name="WebXR" type="HBoxContainer" parent="WebXR/WebXRVBox"]
+[node name="WebXR" type="HBoxContainer" parent="WebXR/WebXRVBox" unique_id=1985245243]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="WebXR/WebXRVBox/WebXR"]
+[node name="Label" type="Label" parent="WebXR/WebXRVBox/WebXR" unique_id=2098678175]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "WebXR primary:"
 
-[node name="WebXRPrimary" type="OptionButton" parent="WebXR/WebXRVBox/WebXR"]
+[node name="WebXRPrimary" type="OptionButton" parent="WebXR/WebXRVBox/WebXR" unique_id=659753734]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
-item_count = 3
 selected = 0
+item_count = 3
 popup/item_0/text = "Auto"
 popup/item_0/id = 0
 popup/item_1/text = "Thumbstick"
@@ -168,19 +172,19 @@ popup/item_1/id = 1
 popup/item_2/text = "Trackpad"
 popup/item_2/id = 2
 
-[node name="HSeparator" type="HSeparator" parent="WebXR/WebXRVBox"]
+[node name="HSeparator" type="HSeparator" parent="WebXR/WebXRVBox" unique_id=1331547924]
 layout_mode = 2
 
-[node name="Buttons" type="HBoxContainer" parent="WebXR/WebXRVBox"]
+[node name="Buttons" type="HBoxContainer" parent="WebXR/WebXRVBox" unique_id=356745850]
 layout_mode = 2
 alignment = 1
 
-[node name="Save" type="Button" parent="WebXR/WebXRVBox/Buttons"]
+[node name="Save" type="Button" parent="WebXR/WebXRVBox/Buttons" unique_id=98030629]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Apply"
 
-[node name="Reset" type="Button" parent="WebXR/WebXRVBox/Buttons"]
+[node name="Reset" type="Button" parent="WebXR/WebXRVBox/Buttons" unique_id=480678765]
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Reset"

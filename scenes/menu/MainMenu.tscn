@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://3q5n8txx3jmm"]
+[gd_scene format=3 uid="uid://3q5n8txx3jmm"]
 
 [ext_resource type="Script" uid="uid://dvi1pswxc3j03" path="res://scenes/menu/MainMenu.gd" id="1_cmhx0"]
 [ext_resource type="Theme" uid="uid://dgt5fjkytx07d" path="res://assets/resources/menu_theme.tres" id="1_dwey2"]
@@ -8,7 +8,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_46gfj"]
 font_size = 64
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=841993477]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cmhx0")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=15439006]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,49 +30,49 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1119824474]
 layout_mode = 2
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1573700020]
 z_index = 1
 layout_mode = 2
 texture = ExtResource("3_vuiv8")
 stretch_mode = 3
 
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1799111223]
 layout_mode = 2
 text = " "
 label_settings = SubResource("LabelSettings_46gfj")
 
-[node name="Start" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1396320262]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Enter the Museum"
 
-[node name="StartWebXR" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="StartWebXR" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1478289957]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Enter the Museum in VR (WebXR)"
 
-[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer" unique_id=469566527]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "Settings"
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=987141255]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Quit"
 
-[node name="Language" parent="MarginContainer/VBoxContainer" instance=ExtResource("4_2nud1")]
+[node name="Language" parent="MarginContainer/VBoxContainer" unique_id=684990669 instance=ExtResource("4_2nud1")]
 layout_mode = 2
 
-[node name="FadeIn" type="ColorRect" parent="."]
+[node name="FadeIn" type="ColorRect" parent="." unique_id=358105172]
 z_index = 2
 layout_mode = 1
 anchors_preset = 15
@@ -83,7 +83,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="FadeInStage2" type="ColorRect" parent="."]
+[node name="FadeInStage2" type="ColorRect" parent="." unique_id=427614626]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

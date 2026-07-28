@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bxipj7hyjwy6f"]
+[gd_scene format=3 uid="uid://bxipj7hyjwy6f"]
 
 [ext_resource type="Animation" uid="uid://do01jton6rk42" path="res://addons/godot-xr-tools/hands/animations/right/Cup.res" id="1_mq7eu"]
 [ext_resource type="Animation" uid="uid://ky28birj4su6" path="res://addons/godot-xr-tools/hands/animations/right/Default pose.res" id="2_kxlaj"]
@@ -75,7 +75,5 @@ _data = {
 &"Thumb": ExtResource("35_xnxq3")
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer"]
-libraries = {
-"": SubResource("AnimationLibrary_reqae")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" unique_id=636844642]
+libraries/ = SubResource("AnimationLibrary_reqae")

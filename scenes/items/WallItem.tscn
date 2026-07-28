@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://y1oelsib8v3i"]
+[gd_scene format=3 uid="uid://y1oelsib8v3i"]
 
 [ext_resource type="Script" uid="uid://qtg862rvqrq7" path="res://scenes/items/WallItem.gd" id="1_5qdg2"]
 [ext_resource type="Material" uid="uid://c7c48j23p78pk" path="res://assets/textures/wood_2.tres" id="2_u80il"]
@@ -13,13 +13,13 @@
 material = ExtResource("2_u80il")
 size = Vector3(2.5, 4, 0.1)
 
-[node name="WallItem" type="Node3D" groups=["ExhibitItem"]]
+[node name="WallItem" type="Node3D" unique_id=1620881154 groups=["ExhibitItem"]]
 script = ExtResource("1_5qdg2")
 
-[node name="Item" type="Node3D" parent="."]
+[node name="Item" type="Node3D" parent="." unique_id=1160736390]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.1, 0)
 
-[node name="Plaque" type="MeshInstance3D" parent="Item" groups=["render_distance"]]
+[node name="Plaque" type="MeshInstance3D" parent="Item" unique_id=1057640917 groups=["render_distance"]]
 visibility_range_end = 35.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -27,7 +27,7 @@ mesh = SubResource("BoxMesh_e6b5o")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("3_2kvyw")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Item" groups=["managed_light"]]
+[node name="SpotLight3D" type="SpotLight3D" parent="Item" unique_id=2077518334 groups=["managed_light"]]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 5, 3.5)
 light_energy = 0.0
 distance_fade_enabled = true
@@ -35,9 +35,9 @@ spot_range = 12.0
 spot_attenuation = 0.75
 spot_angle = 25.0
 
-[node name="Frame" type="Node3D" parent="Item"]
+[node name="Frame" type="Node3D" parent="Item" unique_id=952071800]
 
-[node name="Frame" type="MeshInstance3D" parent="Item/Frame" groups=["render_distance"]]
+[node name="Frame" type="MeshInstance3D" parent="Item/Frame" unique_id=1508043606 groups=["render_distance"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
 visibility_range_end = 25.0
 visibility_range_end_margin = 10.0
@@ -46,10 +46,10 @@ mesh = ExtResource("3_k5t3j")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("4_1bj2r")
 
-[node name="Ceiling" type="Node3D" parent="."]
+[node name="Ceiling" type="Node3D" parent="." unique_id=1332380502]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ceiling" groups=["render_distance"]]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ceiling" unique_id=1980757572 groups=["render_distance"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 3, 3.5)
 visibility_range_end = 30.0
 visibility_range_end_margin = 5.0
@@ -58,7 +58,7 @@ mesh = ExtResource("4_6x08y")
 skeleton = NodePath("../..")
 surface_material_override/3 = ExtResource("6_744c2")
 
-[node name="SlideSound" type="AudioStreamPlayer3D" parent="."]
+[node name="SlideSound" type="AudioStreamPlayer3D" parent="." unique_id=633686181]
 stream = ExtResource("8_7fcdo")
 max_distance = 20.0
 bus = &"Sound"

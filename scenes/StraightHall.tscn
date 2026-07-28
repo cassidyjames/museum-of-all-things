@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhoi8lq346d7a"]
+[gd_scene format=3 uid="uid://bhoi8lq346d7a"]
 
 [ext_resource type="PackedScene" uid="uid://d11xwkqf1h74w" path="res://scenes/items/FogWall.tscn" id="1_umwxu"]
 [ext_resource type="ArrayMesh" uid="uid://dmoul6rrdv75k" path="res://assets/models/straight_hall.obj" id="2_ghr5s"]
@@ -9,17 +9,17 @@
 material = ExtResource("4_kntcr")
 size = Vector2(4, 8)
 
-[node name="StraightHall" type="Node3D"]
+[node name="StraightHall" type="Node3D" unique_id=1181369887]
 
-[node name="FogWall" parent="." instance=ExtResource("1_umwxu")]
+[node name="FogWall" parent="." unique_id=210027383 instance=ExtResource("1_umwxu")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 4, -2.99202)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=379796804]
 mesh = ExtResource("2_ghr5s")
 surface_material_override/0 = ExtResource("3_7wb8o")
 
-[node name="ExitWall" parent="." instance=ExtResource("1_umwxu")]
+[node name="ExitWall" parent="." unique_id=2004428372 instance=ExtResource("1_umwxu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 2.99127)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1462981751]
 mesh = SubResource("PlaneMesh_qsghr")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bfyy27kell8ig"]
+[gd_scene format=3 uid="uid://bfyy27kell8ig"]
 
 [ext_resource type="Shader" uid="uid://de83r6xpm46lm" path="res://shaders/water.gdshader" id="1_ddbfe"]
 
@@ -13,10 +13,10 @@ fractal_type = 2
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xwo4q"]
 width = 128
 height = 128
+noise = SubResource("FastNoiseLite_rc4st")
 seamless = true
 as_normal_map = true
 bump_strength = 2.0
-noise = SubResource("FastNoiseLite_rc4st")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_uk4jp"]
 noise_type = 3
@@ -25,18 +25,18 @@ fractal_type = 2
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ysuxp"]
 width = 128
 height = 128
+noise = SubResource("FastNoiseLite_uk4jp")
 seamless = true
 as_normal_map = true
 bump_strength = 2.0
-noise = SubResource("FastNoiseLite_uk4jp")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_tw2pw"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7cxrp"]
 width = 256
 height = 256
-seamless = true
 noise = SubResource("FastNoiseLite_tw2pw")
+seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qvos3"]
 render_priority = 0
@@ -55,7 +55,7 @@ shader_parameter/time_scale = 0.05
 shader_parameter/noise_scale = 10.0
 shader_parameter/height_scale = 0.15
 
-[node name="Water" type="MeshInstance3D" groups=["render_distance"]]
+[node name="Water" type="MeshInstance3D" unique_id=891916434 groups=["render_distance"]]
 cast_shadow = 0
 lod_bias = 0.001
 visibility_range_end = 18.0

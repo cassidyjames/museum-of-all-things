@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcr63oanyv85b"]
+[gd_scene format=3 uid="uid://dcr63oanyv85b"]
 
 [ext_resource type="Script" uid="uid://cgfpth31e17j2" path="res://scenes/MusicController.gd" id="1_2tkof"]
 
-[node name="MusicController" type="Node3D"]
+[node name="MusicController" type="Node3D" unique_id=1587453132]
 script = ExtResource("1_2tkof")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=545067209]
 bus = &"Music"

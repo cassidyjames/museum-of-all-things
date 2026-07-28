@@ -1,4 +1,4 @@
-[gd_resource type="MeshLibrary" load_steps=92 format=4 uid="uid://b887fn6f3qg14"]
+[gd_resource type="MeshLibrary" format=4 uid="uid://b887fn6f3qg14"]
 
 [ext_resource type="Material" uid="uid://1ddkd5q5infj" path="res://assets/textures/wood.tres" id="1_a6en6"]
 [ext_resource type="Texture2D" uid="uid://d28b2l52nlx2p" path="res://assets/textures/white.png" id="2_cuohn"]

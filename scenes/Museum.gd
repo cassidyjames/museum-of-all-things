@@ -41,6 +41,7 @@ func init(player):
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
   $WorldEnvironment.environment.ssr_enabled = not _xr
+  $WorldEnvironment.environment.ssao_enabled = not Util.is_compatibility_renderer()
 
   _grid = $Lobby/GridMap
   ExhibitFetcher.wikitext_complete.connect(_on_fetch_complete)

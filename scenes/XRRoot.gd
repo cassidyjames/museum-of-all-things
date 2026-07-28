@@ -89,7 +89,7 @@ func _failed_vr_accept_confirmed():
 
 func _is_openxr_hand_tracking_aim_enabled() -> bool:
   if Util.is_openxr():
-    var hand_tracking_aim_extension = Engine.get_singleton("OpenXRFbHandTrackingAimExtensionWrapper")
+    var hand_tracking_aim_extension = Engine.get_singleton("OpenXRFbHandTrackingAimExtension")
     return hand_tracking_aim_extension and hand_tracking_aim_extension.is_enabled()
   return false
 

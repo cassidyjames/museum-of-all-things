@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3ljfgt8nv5v"]
+[gd_scene format=3 uid="uid://c3ljfgt8nv5v"]
 
 [ext_resource type="Theme" uid="uid://dgt5fjkytx07d" path="res://assets/resources/menu_theme.tres" id="1_slws2"]
 [ext_resource type="Script" uid="uid://y7ofjhhh1u34" path="res://scenes/menu/XrControlsMenu.gd" id="2_reth0"]
@@ -9,7 +9,7 @@ font_size = 64
 [sub_resource type="LabelSettings" id="LabelSettings_laulw"]
 font_size = 24
 
-[node name="XrControlsMenu" type="VBoxContainer"]
+[node name="XrControlsMenu" type="VBoxContainer" unique_id=1334020271]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -18,53 +18,53 @@ grow_vertical = 2
 theme = ExtResource("1_slws2")
 script = ExtResource("2_reth0")
 
-[node name="MainOptions" type="VBoxContainer" parent="."]
+[node name="MainOptions" type="VBoxContainer" parent="." unique_id=1490212807]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MainOptions"]
+[node name="Label" type="Label" parent="MainOptions" unique_id=1265149618]
 layout_mode = 2
 text = "VR Controls"
 label_settings = SubResource("LabelSettings_vlir5")
 
-[node name="Back" type="Button" parent="MainOptions"]
+[node name="Back" type="Button" parent="MainOptions" unique_id=75021223]
 layout_mode = 2
 text = "Back"
 
-[node name="RestoreDefault" type="Button" parent="MainOptions"]
+[node name="RestoreDefault" type="Button" parent="MainOptions" unique_id=60488458]
 layout_mode = 2
 text = "Restore Default Settings"
 
-[node name="MovementOptions" type="VBoxContainer" parent="."]
+[node name="MovementOptions" type="VBoxContainer" parent="." unique_id=475900223]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="MovementOptions"]
+[node name="Label2" type="Label" parent="MovementOptions" unique_id=786341153]
 layout_mode = 2
 text = " "
 label_settings = SubResource("LabelSettings_laulw")
 
-[node name="Label3" type="Label" parent="MovementOptions"]
+[node name="Label3" type="Label" parent="MovementOptions" unique_id=187604473]
 layout_mode = 2
 text = "Movement Style"
 
-[node name="Styles" type="HBoxContainer" parent="MovementOptions"]
+[node name="Styles" type="HBoxContainer" parent="MovementOptions" unique_id=1753935615]
 layout_mode = 2
 
-[node name="Teleportation" type="Button" parent="MovementOptions/Styles"]
+[node name="Teleportation" type="Button" parent="MovementOptions/Styles" unique_id=1076469103]
 layout_mode = 2
 size_flags_horizontal = 3
 disabled = true
 text = "Teleportation (Left Trigger)"
 
-[node name="DirectMovement" type="Button" parent="MovementOptions/Styles"]
+[node name="DirectMovement" type="Button" parent="MovementOptions/Styles" unique_id=1591683023]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Direct Movement (Left Analog Stick)"
 
-[node name="Label6" type="Label" parent="MovementOptions"]
+[node name="Label6" type="Label" parent="MovementOptions" unique_id=626449014]
 layout_mode = 2
 text = "Direct Movement Speed"
 
-[node name="MovementSpeed" type="HSlider" parent="MovementOptions"]
+[node name="MovementSpeed" type="HSlider" parent="MovementOptions" unique_id=1326139141]
 layout_mode = 2
 min_value = 0.1
 max_value = 20.0
@@ -72,49 +72,49 @@ step = 0.5
 value = 6.1
 editable = false
 
-[node name="MovementSpeedValue" type="Label" parent="MovementOptions"]
+[node name="MovementSpeedValue" type="Label" parent="MovementOptions" unique_id=1487237583]
 layout_mode = 2
 text = "6.0"
 horizontal_alignment = 1
 
-[node name="RotationOptions" type="VBoxContainer" parent="."]
+[node name="RotationOptions" type="VBoxContainer" parent="." unique_id=1409628084]
 layout_mode = 2
 
-[node name="Label5" type="Label" parent="RotationOptions"]
+[node name="Label5" type="Label" parent="RotationOptions" unique_id=442504935]
 layout_mode = 2
 text = " "
 label_settings = SubResource("LabelSettings_laulw")
 
-[node name="Label6" type="Label" parent="RotationOptions"]
+[node name="Label6" type="Label" parent="RotationOptions" unique_id=1012735778]
 layout_mode = 2
 text = "Rotation Style (Right Stick)"
 
-[node name="Styles" type="HBoxContainer" parent="RotationOptions"]
+[node name="Styles" type="HBoxContainer" parent="RotationOptions" unique_id=826412736]
 layout_mode = 2
 
-[node name="SnapTurn" type="Button" parent="RotationOptions/Styles"]
+[node name="SnapTurn" type="Button" parent="RotationOptions/Styles" unique_id=1334244516]
 layout_mode = 2
 size_flags_horizontal = 3
 disabled = true
 text = "Snap Turn"
 
-[node name="SmoothTurn" type="Button" parent="RotationOptions/Styles"]
+[node name="SmoothTurn" type="Button" parent="RotationOptions/Styles" unique_id=2001580758]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Smooth Turn"
 
-[node name="Label4" type="Label" parent="RotationOptions"]
+[node name="Label4" type="Label" parent="RotationOptions" unique_id=375055419]
 layout_mode = 2
 text = "Camera Rotation Increment"
 
-[node name="RotationIncrement" type="HSlider" parent="RotationOptions"]
+[node name="RotationIncrement" type="HSlider" parent="RotationOptions" unique_id=200219114]
 layout_mode = 2
 min_value = 5.0
 max_value = 180.0
 step = 5.0
 value = 40.0
 
-[node name="RotationIncrementValue" type="Label" parent="RotationOptions"]
+[node name="RotationIncrementValue" type="Label" parent="RotationOptions" unique_id=2083647727]
 layout_mode = 2
 text = "40"
 horizontal_alignment = 1

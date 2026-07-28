@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cv3acpc23tjw0"]
+[gd_scene format=3 uid="uid://cv3acpc23tjw0"]
 
 [ext_resource type="Script" uid="uid://bim2pdhskx2p3" path="res://scenes/menu/LanguageSelection.gd" id="1_vdrqe"]
 
-[node name="Language" type="OptionButton"]
+[node name="Language" type="OptionButton" unique_id=1982664161]
 selected = 0
 item_count = 1
 popup/item_0/text = "English"

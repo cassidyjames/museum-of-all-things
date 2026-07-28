@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5x50p37g7pwi"]
+[gd_scene format=3 uid="uid://b5x50p37g7pwi"]
 
 [ext_resource type="Script" uid="uid://v3flr6g28crp" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.gd" id="1"]
 [ext_resource type="Material" uid="uid://bk72wfw25ff0v" path="res://addons/godot-xr-tools/materials/teleport.tres" id="2_6822k"]
@@ -10,30 +10,30 @@
 [sub_resource type="PlaneMesh" id="1"]
 size = Vector2(0.001, 0.001)
 
-[node name="VRCommonShaderCache" type="Node3D"]
+[node name="VRCommonShaderCache" type="Node3D" unique_id=2090588861]
 script = ExtResource("1")
 
-[node name="teleport" type="MeshInstance3D" parent="."]
+[node name="teleport" type="MeshInstance3D" parent="." unique_id=602177191]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 mesh = SubResource("1")
 surface_material_override/0 = ExtResource("2_6822k")
 
-[node name="target" type="MeshInstance3D" parent="."]
+[node name="target" type="MeshInstance3D" parent="." unique_id=259504598]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 mesh = SubResource("1")
 surface_material_override/0 = ExtResource("3_agvdv")
 
-[node name="capsule" type="MeshInstance3D" parent="."]
+[node name="capsule" type="MeshInstance3D" parent="." unique_id=1084376385]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 mesh = SubResource("1")
 surface_material_override/0 = ExtResource("4_gxjsg")
 
-[node name="pointer" type="MeshInstance3D" parent="."]
+[node name="pointer" type="MeshInstance3D" parent="." unique_id=222813749]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 mesh = SubResource("1")
 surface_material_override/0 = ExtResource("5_12251")
 
-[node name="highlight" type="MeshInstance3D" parent="."]
+[node name="highlight" type="MeshInstance3D" parent="." unique_id=727977791]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 mesh = SubResource("1")
 surface_material_override/0 = ExtResource("6_ld6la")

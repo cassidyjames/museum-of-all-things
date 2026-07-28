@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://0bvu3kq7qnal"]
+[gd_scene format=3 uid="uid://0bvu3kq7qnal"]
 
 [ext_resource type="Script" uid="uid://bo4f3knbgepfa" path="res://scenes/Hall.gd" id="1_eu127"]
 [ext_resource type="PackedScene" uid="uid://bijq5fqp57yd4" path="res://scenes/LoaderTrigger.tscn" id="2_fcpmw"]
@@ -6,23 +6,23 @@
 [ext_resource type="PackedScene" uid="uid://df28hj6wi4fdx" path="res://scenes/HallDirectionDetector.tscn" id="4_y7uhf"]
 [ext_resource type="PackedScene" uid="uid://c5wpeqr3s3lw4" path="res://scenes/items/Sign.tscn" id="5_h6bvl"]
 
-[node name="Hall" type="Node3D" groups=["ExhibitItem", "Hall"]]
+[node name="Hall" type="Node3D" unique_id=1613630363 groups=["ExhibitItem", "Hall"]]
 script = ExtResource("1_eu127")
 
-[node name="LoaderTrigger" parent="." instance=ExtResource("2_fcpmw")]
+[node name="LoaderTrigger" parent="." unique_id=493731263 instance=ExtResource("2_fcpmw")]
 collision_mask = 524288
 monitoring = false
 
-[node name="HallDirectionDetector" parent="." instance=ExtResource("4_y7uhf")]
+[node name="HallDirectionDetector" parent="." unique_id=1442388746 instance=ExtResource("4_y7uhf")]
 
-[node name="FromSign" parent="." instance=ExtResource("5_h6bvl")]
+[node name="FromSign" parent="." unique_id=66399563 instance=ExtResource("5_h6bvl")]
 
-[node name="ToSign" parent="." instance=ExtResource("5_h6bvl")]
+[node name="ToSign" parent="." unique_id=1337794551 instance=ExtResource("5_h6bvl")]
 
-[node name="EntryDoor" parent="." instance=ExtResource("3_1akbl")]
+[node name="EntryDoor" parent="." unique_id=1402099293 instance=ExtResource("3_1akbl")]
 
-[node name="ExitDoor" parent="." instance=ExtResource("3_1akbl")]
+[node name="ExitDoor" parent="." unique_id=926905506 instance=ExtResource("3_1akbl")]
 
-[node name="Light" type="OmniLight3D" parent="." groups=["managed_light", "managed_light_skip_direction_test"]]
+[node name="Light" type="OmniLight3D" parent="." unique_id=1131656906 groups=["managed_light", "managed_light_skip_direction_test"]]
 light_energy = 0.5
 omni_attenuation = 2.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dn526eij58wfs"]
+[gd_scene format=3 uid="uid://dn526eij58wfs"]
 
 [ext_resource type="Script" uid="uid://b4itlodcpju0d" path="res://scenes/XRRoot.gd" id="1_t4l57"]
 [ext_resource type="PackedScene" uid="uid://b5x50p37g7pwi" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="1_v48yd"]
@@ -31,35 +31,35 @@ shading_mode = 0
 albedo_texture = ExtResource("10_l8qch")
 billboard_mode = 1
 
-[node name="XrRoot" type="Node3D"]
+[node name="XrRoot" type="Node3D" unique_id=85797660]
 script = ExtResource("1_t4l57")
 
-[node name="XROrigin3D" type="XROrigin3D" parent="."]
+[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=541365369]
 
-[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=327078837]
 
-[node name="VRCommonShaderCache" parent="XROrigin3D/XRCamera3D" instance=ExtResource("1_v48yd")]
+[node name="VRCommonShaderCache" parent="XROrigin3D/XRCamera3D" unique_id=1060050609 instance=ExtResource("1_v48yd")]
 
-[node name="XRController3D_left" type="XRController3D" parent="XROrigin3D"]
+[node name="XRController3D_left" type="XRController3D" parent="XROrigin3D" unique_id=240261409]
 tracker = &"left_hand"
 
-[node name="XRToolsMovementDirect" type="Node" parent="XROrigin3D/XRController3D_left" groups=["movement_providers"]]
+[node name="XRToolsMovementDirect" type="Node" parent="XROrigin3D/XRController3D_left" unique_id=1798964614 groups=["movement_providers"]]
 unique_name_in_owner = true
 script = ExtResource("6_mvrkt")
 max_speed = 5.0
 strafe = true
 enabled = false
 
-[node name="LeftHand" parent="XROrigin3D/XRController3D_left" instance=ExtResource("4_6uron")]
+[node name="LeftHand" parent="XROrigin3D/XRController3D_left" unique_id=454003607 instance=ExtResource("4_6uron")]
 hand_material_override = ExtResource("4_jb2jl")
 
-[node name="FunctionPointer" parent="XROrigin3D/XRController3D_left" instance=ExtResource("7_4wwnr")]
+[node name="FunctionPointer" parent="XROrigin3D/XRController3D_left" unique_id=2083985946 instance=ExtResource("7_4wwnr")]
 distance = 5.0
 show_laser = 2
 laser_length = 1
 laser_material = SubResource("StandardMaterial3D_ne1gf")
 
-[node name="FunctionTeleport" parent="XROrigin3D/XRController3D_left" instance=ExtResource("7_q0d1l")]
+[node name="FunctionTeleport" parent="XROrigin3D/XRController3D_left" unique_id=25753827 instance=ExtResource("7_q0d1l")]
 teleport_button_action = "thumbstick_up"
 can_teleport_color = Color(1, 1, 1, 1)
 cant_teleport_color = Color(0.572989, 0.572988, 0.572988, 1)
@@ -71,39 +71,39 @@ valid_teleport_mask = 4294901761
 player_material = SubResource("StandardMaterial3D_roh25")
 player_material = SubResource("StandardMaterial3D_roh25")
 
-[node name="XRController3D_right" type="XRController3D" parent="XROrigin3D"]
+[node name="XRController3D_right" type="XRController3D" parent="XROrigin3D" unique_id=1785388165]
 tracker = &"right_hand"
 
-[node name="RightHand" parent="XROrigin3D/XRController3D_right" instance=ExtResource("5_wqppd")]
+[node name="RightHand" parent="XROrigin3D/XRController3D_right" unique_id=280079766 instance=ExtResource("5_wqppd")]
 hand_material_override = ExtResource("4_jb2jl")
 
-[node name="XRToolsMovementTurn" type="Node" parent="XROrigin3D/XRController3D_right" groups=["movement_providers"]]
+[node name="XRToolsMovementTurn" type="Node" parent="XROrigin3D/XRController3D_right" unique_id=1013179590 groups=["movement_providers"]]
 unique_name_in_owner = true
 script = ExtResource("6_80eyh")
 turn_mode = 1
 step_turn_delay = 0.4
 step_turn_angle = 40.0
 
-[node name="HandTrackingLeft" type="XRController3D" parent="XROrigin3D"]
+[node name="HandTrackingLeft" type="XRController3D" parent="XROrigin3D" unique_id=2071241445]
 visible = false
 tracker = &"/user/hand_tracker/left"
 
-[node name="OpenXRFbHandTrackingMesh" type="OpenXRFbHandTrackingMesh" parent="XROrigin3D/HandTrackingLeft"]
+[node name="OpenXRFbHandTrackingMesh" type="OpenXRFbHandTrackingMesh" parent="XROrigin3D/HandTrackingLeft" unique_id=1540963643]
 material = ExtResource("4_jb2jl")
 
-[node name="XRHandModifier3D" type="XRHandModifier3D" parent="XROrigin3D/HandTrackingLeft/OpenXRFbHandTrackingMesh"]
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="XROrigin3D/HandTrackingLeft/OpenXRFbHandTrackingMesh" unique_id=1490777733]
 
-[node name="MenuIcon" type="MeshInstance3D" parent="XROrigin3D/HandTrackingLeft"]
+[node name="MenuIcon" type="MeshInstance3D" parent="XROrigin3D/HandTrackingLeft" unique_id=1840506253]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05557, 0.05749, 0.07203)
 visible = false
 mesh = SubResource("QuadMesh_5q6px")
 surface_material_override/0 = SubResource("StandardMaterial3D_au42f")
 
-[node name="HandTrackingRight" type="XRController3D" parent="XROrigin3D"]
+[node name="HandTrackingRight" type="XRController3D" parent="XROrigin3D" unique_id=1206159591]
 visible = false
 tracker = &"/user/hand_tracker/right"
 
-[node name="OpenXRFbHandTrackingMesh" type="OpenXRFbHandTrackingMesh" parent="XROrigin3D/HandTrackingRight"]
+[node name="OpenXRFbHandTrackingMesh" type="OpenXRFbHandTrackingMesh" parent="XROrigin3D/HandTrackingRight" unique_id=1067918745]
 hand = 1
 material = ExtResource("4_jb2jl")
 bones/0/name = "RightPalm"
@@ -133,26 +133,26 @@ bones/23/name = "RightLittleIntermediate"
 bones/24/name = "RightLittleDistal"
 bones/25/name = "RightLittleTip"
 
-[node name="XRHandModifier3D" type="XRHandModifier3D" parent="XROrigin3D/HandTrackingRight/OpenXRFbHandTrackingMesh"]
+[node name="XRHandModifier3D" type="XRHandModifier3D" parent="XROrigin3D/HandTrackingRight/OpenXRFbHandTrackingMesh" unique_id=1343080642]
 hand_tracker = &"/user/hand_tracker/right"
 
-[node name="HandTrackingAimLeft" type="XRController3D" parent="XROrigin3D"]
+[node name="HandTrackingAimLeft" type="XRController3D" parent="XROrigin3D" unique_id=1148489984]
 tracker = &"/user/fbhandaim/left"
 
-[node name="XRToolsPlayerBody" type="CharacterBody3D" parent="XROrigin3D" groups=["Player"]]
+[node name="XRToolsPlayerBody" type="CharacterBody3D" parent="XROrigin3D" unique_id=1480952486 groups=["Player"]]
 top_level = true
 collision_layer = 524288
 script = ExtResource("4_l0d4h")
 
-[node name="FootstepPlayer" parent="XROrigin3D/XRToolsPlayerBody" instance=ExtResource("12_drak2")]
+[node name="FootstepPlayer" parent="XROrigin3D/XRToolsPlayerBody" unique_id=378720273 instance=ExtResource("12_drak2")]
 
-[node name="MenuPivot" type="Node3D" parent="XROrigin3D"]
+[node name="MenuPivot" type="Node3D" parent="XROrigin3D" unique_id=800428955]
 
-[node name="XrMenu" parent="XROrigin3D/MenuPivot" instance=ExtResource("10_g5s6k")]
+[node name="XrMenu" parent="XROrigin3D/MenuPivot" unique_id=1784788508 instance=ExtResource("10_g5s6k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.848823, -2.06897)
 visible = false
 
-[node name="FailedVrAccept" type="AcceptDialog" parent="."]
+[node name="FailedVrAccept" type="AcceptDialog" parent="." unique_id=1373414413]
 process_mode = 3
 initial_position = 2
 dialog_text = "Failed to initialize OpenXR!
@@ -162,7 +162,7 @@ Make sure you have a VR headet plugged in and an OpenXR provider configured.
 If you didn't mean to use VR, download a non-OpenXR version of the Musem of All Things."
 dialog_close_on_escape = false
 
-[node name="MenuPivotTimer" type="Timer" parent="."]
+[node name="MenuPivotTimer" type="Timer" parent="." unique_id=1356434976]
 one_shot = true
 
 [connection signal="button_pressed" from="XROrigin3D/XRController3D_left" to="." method="_on_xr_controller_3d_left_button_pressed"]

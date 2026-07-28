@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnfgmu10ohtpt"]
+[gd_scene format=3 uid="uid://cnfgmu10ohtpt"]
 
 [ext_resource type="ArrayMesh" uid="uid://dru3nkgfut6o4" path="res://assets/models/pool.obj" id="1_8j43i"]
 [ext_resource type="Script" uid="uid://b2j2833mkodcj" path="res://scenes/items/pool.gd" id="1_ao6a7"]
@@ -12,33 +12,33 @@ data = PackedVector3Array(-2.4946, 0.6, 2.4946, -2.4946, 0.6, -2.4946, -2.4946, 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gmt1v"]
 points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
 
-[node name="Pool" type="Node3D"]
+[node name="Pool" type="Node3D" unique_id=35982515]
 script = ExtResource("1_ao6a7")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1149420143]
 mesh = ExtResource("1_8j43i")
 surface_material_override/0 = ExtResource("2_jqyjj")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1176967348]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1647716117]
 shape = SubResource("ConcavePolygonShape3D_smwvp")
 
-[node name="Water" parent="." instance=ExtResource("3_cd5xv")]
+[node name="Water" parent="." unique_id=1352477657 instance=ExtResource("3_cd5xv")]
 transform = Transform3D(2.8, 0, 0, 0, 1, 0, 0, 0, 2.8, 0, 0.323462, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Water" groups=["footstep_water"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="Water" unique_id=1805040199 groups=["footstep_water"]]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Water/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Water/StaticBody3D" unique_id=934096982]
 shape = SubResource("ConvexPolygonShape3D_gmt1v")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." groups=["managed_light"]]
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1372235726 groups=["managed_light"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55963, 0)
 omni_range = 4.0
 
-[node name="WaterAmbience1Reverb" type="AudioStreamPlayer3D" parent="."]
+[node name="WaterAmbience1Reverb" type="AudioStreamPlayer3D" parent="." unique_id=787997111]
 stream = ExtResource("5_naukb")
 volume_db = -12.0
 autoplay = true

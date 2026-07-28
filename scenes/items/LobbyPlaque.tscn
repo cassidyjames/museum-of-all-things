@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bvk8hcw5x5lmc"]
+[gd_scene format=3 uid="uid://bvk8hcw5x5lmc"]
 
 [ext_resource type="ArrayMesh" uid="uid://dfalfeatlgtod" path="res://assets/models/lobby_plaque.obj" id="1_bvcej"]
 [ext_resource type="Script" uid="uid://dy7sdjyq5gu5e" path="res://scenes/items/LobbyPlaque.gd" id="2_5h8yj"]
@@ -11,11 +11,11 @@
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pkvds"]
 points = PackedVector3Array(-0.875, 0, -0.1, -0.875, 0, 0.1, -0.875, 3, -0.1, 0.875, 0, -0.1, 0.875, 0, 0.1, -0.875, 3, 0.1, 0.875, 3, -0.1, 0.875, 3, 0.1)
 
-[node name="LobbyPlaque" type="MeshInstance3D"]
+[node name="LobbyPlaque" type="MeshInstance3D" unique_id=1882109661]
 mesh = ExtResource("1_bvcej")
 script = ExtResource("2_5h8yj")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="." groups=["managed_light", "managed_light_skip_direction_test"]]
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1830916951 groups=["managed_light", "managed_light_skip_direction_test"]]
 transform = Transform3D(1, 0, 0, 0, 0.216542, 0.976273, 0, -0.976273, 0.216542, 0.00160336, 4.4339, 1.21375)
 light_energy = 2.0
 distance_fade_enabled = true
@@ -23,18 +23,18 @@ distance_fade_begin = 30.0
 spot_attenuation = 0.5
 spot_angle = 37.73
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1075088324]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.37975, 1.3236)
 mesh = ExtResource("2_ummoj")
 surface_material_override/0 = ExtResource("3_uy0li")
 surface_material_override/1 = ExtResource("4_c6clx")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2048007956]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1931434335]
 shape = SubResource("ConvexPolygonShape3D_pkvds")
 
-[node name="Title" type="Label3D" parent="." groups=["render_distance"]]
+[node name="Title" type="Label3D" parent="." unique_id=653065736 groups=["render_distance"]]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.519002, 1.14703, 0.101)
 visibility_range_end = 50.0
 visibility_range_end_margin = 3.0
@@ -46,7 +46,7 @@ font_size = 100
 outline_size = 0
 horizontal_alignment = 0
 
-[node name="Subtitle" type="Label3D" parent="." groups=["render_distance"]]
+[node name="Subtitle" type="Label3D" parent="." unique_id=429091565 groups=["render_distance"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.71677, 0.814791, 0.101)
 visibility_range_end = 40.0
 visibility_range_end_margin = 3.0

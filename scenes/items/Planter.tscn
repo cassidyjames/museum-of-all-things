@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://jcho8qa62xrs"]
+[gd_scene format=3 uid="uid://jcho8qa62xrs"]
 
 [ext_resource type="ArrayMesh" uid="uid://drgsdd0ymsi1t" path="res://assets/models/planter.obj" id="1_lbpq0"]
 [ext_resource type="Material" uid="uid://datvvi6j3c0kp" path="res://assets/textures/white.tres" id="2_iqow5"]
@@ -8,21 +8,21 @@
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sg5i6"]
 points = PackedVector3Array(0.75, 0.6, 4, -0.75, 0.6, 4, 0.75, 0, 4, 0.75, 0.6, -4, -0.75, 0, 4, -0.75, 0.6, -4, 0.75, 0, -4, -0.75, 0, -4)
 
-[node name="Planter" type="Node3D" groups=["Scenery"]]
+[node name="Planter" type="Node3D" unique_id=1898314499 groups=["Scenery"]]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["render_distance"]]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=166251984 groups=["render_distance"]]
 visibility_range_end = 50.0
 mesh = ExtResource("1_lbpq0")
 surface_material_override/0 = ExtResource("2_iqow5")
 surface_material_override/1 = ExtResource("3_ny0xs")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" groups=["footstep_dirt"]]
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=49454658 groups=["footstep_dirt"]]
 collision_layer = 3
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=622341641]
 shape = SubResource("ConvexPolygonShape3D_sg5i6")
 
-[node name="Plants" parent="." instance=ExtResource("4_fcjab")]
+[node name="Plants" parent="." unique_id=225466771 instance=ExtResource("4_fcjab")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 area_size = Vector3(1.25, 0, 7.5)

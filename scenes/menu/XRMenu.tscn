@@ -1,13 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhue34utfsw0r"]
+[gd_scene format=3 uid="uid://bhue34utfsw0r"]
 
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_gouu8"]
 [ext_resource type="Script" uid="uid://debpuch7qiqin" path="res://scenes/menu/XrMenu.gd" id="1_vutop"]
 [ext_resource type="PackedScene" uid="uid://c02t4nwkigyxa" path="res://scenes/menu/XRMenuCanvas.tscn" id="2_kyyvp"]
 
-[node name="XrMenu" type="Node3D"]
+[node name="XrMenu" type="Node3D" unique_id=1925489394]
 script = ExtResource("1_vutop")
 
-[node name="Viewport2Din3D" parent="." instance=ExtResource("1_gouu8")]
+[node name="Viewport2Din3D" parent="." unique_id=1280223326 instance=ExtResource("1_gouu8")]
 screen_size = Vector2(2, 1.5)
 collision_layer = 0
 scene = ExtResource("2_kyyvp")

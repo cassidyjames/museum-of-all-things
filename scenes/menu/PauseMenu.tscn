@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhi1d8bl668hb"]
+[gd_scene format=3 uid="uid://bhi1d8bl668hb"]
 
 [ext_resource type="Script" uid="uid://c2kidpy7aw0wc" path="res://scenes/menu/PauseMenu.gd" id="1_qk8a1"]
 [ext_resource type="Theme" uid="uid://dgt5fjkytx07d" path="res://assets/resources/menu_theme.tres" id="1_ysejj"]
@@ -10,7 +10,7 @@ font_size = 64
 [sub_resource type="LabelSettings" id="LabelSettings_2s8qn"]
 font_size = 64
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" unique_id=2090975172]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +20,7 @@ grow_vertical = 2
 theme = ExtResource("1_ysejj")
 script = ExtResource("1_qk8a1")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1633753818]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,69 +32,69 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="QuitContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="QuitContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1856009569]
 visible = false
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="MarginContainer/QuitContainer"]
+[node name="Label" type="Label" parent="MarginContainer/QuitContainer" unique_id=1896033821]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Are you sure you want to Quit?"
 label_settings = SubResource("LabelSettings_qguvm")
 autowrap_mode = 2
 
-[node name="Spacer3" type="Label" parent="MarginContainer/QuitContainer"]
+[node name="Spacer3" type="Label" parent="MarginContainer/QuitContainer" unique_id=1635928618]
 layout_mode = 2
 
-[node name="Quit" type="Button" parent="MarginContainer/QuitContainer"]
+[node name="Quit" type="Button" parent="MarginContainer/QuitContainer" unique_id=2005378338]
 layout_mode = 2
 text = "Yes"
 
-[node name="Spacer2" type="Label" parent="MarginContainer/QuitContainer"]
+[node name="Spacer2" type="Label" parent="MarginContainer/QuitContainer" unique_id=1136932459]
 layout_mode = 2
 
-[node name="CancelQuit" type="Button" parent="MarginContainer/QuitContainer"]
+[node name="CancelQuit" type="Button" parent="MarginContainer/QuitContainer" unique_id=2128710601]
 layout_mode = 2
 text = "No"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=409522897]
 layout_mode = 2
 alignment = 1
 
-[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer" unique_id=2055357089]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Paused"
 label_settings = SubResource("LabelSettings_2s8qn")
 autowrap_mode = 3
 
-[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer" unique_id=972809593]
 layout_mode = 2
 text = "Resume"
 
-[node name="Open" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Open" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1509517751]
 layout_mode = 2
 text = "Open Page in Browser"
 
-[node name="Spacer" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Spacer" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1951966502]
 layout_mode = 2
 
-[node name="Lobby" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Lobby" type="Button" parent="MarginContainer/VBoxContainer" unique_id=478538347]
 layout_mode = 2
 text = "Return to Lobby"
 
-[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer" unique_id=756485366]
 layout_mode = 2
 text = "Settings"
 
-[node name="Language" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_pjuoe")]
+[node name="Language" parent="MarginContainer/VBoxContainer" unique_id=1645669628 instance=ExtResource("3_pjuoe")]
 layout_mode = 2
 
-[node name="Spacer2" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Spacer2" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1952252259]
 layout_mode = 2
 
-[node name="AskQuit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="AskQuit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=53558772]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"

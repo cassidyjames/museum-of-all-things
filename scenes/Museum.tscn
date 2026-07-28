@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://5javxi3uy0ep"]
+[gd_scene format=3 uid="uid://5javxi3uy0ep"]
 
 [ext_resource type="Script" uid="uid://b3ct4p6pgs3v2" path="res://scenes/Museum.gd" id="1_7pjtd"]
 [ext_resource type="PackedScene" uid="uid://u4b0awts0vdi" path="res://scenes/Lobby.tscn" id="3_exsdv"]
@@ -31,19 +31,19 @@ fog_depth_end = 294.3
 volumetric_fog_temporal_reprojection_enabled = false
 volumetric_fog_temporal_reprojection_amount = 0.5
 
-[node name="Museum" type="Node3D"]
+[node name="Museum" type="Node3D" unique_id=1859511552]
 script = ExtResource("1_7pjtd")
 max_teleport_distance = 20.0
 max_exhibits_loaded = 5
 max_room_dimension = 4
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." groups=["Environment"]]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=228814908 groups=["Environment"]]
 environment = SubResource("Environment_g30yg")
 
-[node name="Lobby" parent="." instance=ExtResource("3_exsdv")]
+[node name="Lobby" parent="." unique_id=1064690745 instance=ExtResource("3_exsdv")]
 
-[node name="TeleportTimer" type="Timer" parent="."]
+[node name="TeleportTimer" type="Timer" parent="." unique_id=190179889]
 
-[node name="AmbienceController" parent="." instance=ExtResource("3_udk7u")]
+[node name="AmbienceController" parent="." unique_id=892292440 instance=ExtResource("3_udk7u")]
 
-[node name="MusicController" parent="." instance=ExtResource("4_uv22m")]
+[node name="MusicController" parent="." unique_id=160301920 instance=ExtResource("4_uv22m")]

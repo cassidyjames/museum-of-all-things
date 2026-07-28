@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bduykqqplkh44"]
+[gd_scene format=3 uid="uid://bduykqqplkh44"]
 
 [ext_resource type="ArrayMesh" uid="uid://dfalfeatlgtod" path="res://assets/models/lobby_plaque.obj" id="1_3mpu0"]
 [ext_resource type="Material" uid="uid://bj7n7q60eccke" path="res://assets/textures/lobby_plaque_map.tres" id="2_8ufn8"]
@@ -11,12 +11,12 @@
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pkvds"]
 points = PackedVector3Array(-0.875, 0, -0.1, -0.875, 0, 0.1, -0.875, 3, -0.1, 0.875, 0, -0.1, 0.875, 0, 0.1, -0.875, 3, 0.1, 0.875, 3, -0.1, 0.875, 3, 0.1)
 
-[node name="LobbyMap" type="MeshInstance3D"]
+[node name="LobbyMap" type="MeshInstance3D" unique_id=53941091]
 mesh = ExtResource("1_3mpu0")
 surface_material_override/0 = ExtResource("2_8ufn8")
 script = ExtResource("3_md5jq")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="." groups=["managed_light", "managed_light_skip_direction_test"]]
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=521566261 groups=["managed_light", "managed_light_skip_direction_test"]]
 transform = Transform3D(1, 0, 0, 0, 0.216542, 0.976273, 0, -0.976273, 0.216542, 0.00160336, 4.4339, 1.21375)
 light_energy = 2.0
 distance_fade_enabled = true
@@ -24,18 +24,18 @@ distance_fade_begin = 30.0
 spot_attenuation = 0.5
 spot_angle = 37.73
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1885517569]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.37975, 1.3236)
 mesh = ExtResource("4_srsjo")
 surface_material_override/0 = ExtResource("5_bjucp")
 surface_material_override/1 = ExtResource("6_jocsy")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1696973715]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=908927006]
 shape = SubResource("ConvexPolygonShape3D_pkvds")
 
-[node name="Science" type="Label3D" parent="." groups=["render_distance"]]
+[node name="Science" type="Label3D" parent="." unique_id=1501387756 groups=["render_distance"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.48983, 2.33151, 0.101)
 visibility_range_end = 30.0
 visibility_range_end_margin = 3.0
@@ -48,7 +48,7 @@ outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 0
 
-[node name="Technology" type="Label3D" parent="." groups=["render_distance"]]
+[node name="Technology" type="Label3D" parent="." unique_id=609558452 groups=["render_distance"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.728822, 1.77699, 0.101)
 visibility_range_end = 30.0
 visibility_range_end_margin = 3.0
@@ -61,7 +61,7 @@ outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 0
 
-[node name="Geography" type="Label3D" parent="." groups=["render_distance"]]
+[node name="Geography" type="Label3D" parent="." unique_id=1109788774 groups=["render_distance"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0913131, 2.33151, 0.101)
 visibility_range_end = 30.0
 visibility_range_end_margin = 3.0
@@ -74,7 +74,7 @@ outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 0
 
-[node name="Culture" type="Label3D" parent="." groups=["render_distance"]]
+[node name="Culture" type="Label3D" parent="." unique_id=355986813 groups=["render_distance"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.365743, 1.77302, 0.101)
 visibility_range_end = 30.0
 visibility_range_end_margin = 3.0
@@ -88,7 +88,7 @@ outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 0
 
-[node name="Art" type="Label3D" parent="." groups=["render_distance"]]
+[node name="Art" type="Label3D" parent="." unique_id=1241722868 groups=["render_distance"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.770093, 1.19445, 0.101)
 visibility_range_end = 30.0
 visibility_range_end_margin = 3.0
@@ -102,7 +102,7 @@ outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 0
 
-[node name="People" type="Label3D" parent="." groups=["render_distance"]]
+[node name="People" type="Label3D" parent="." unique_id=90802475 groups=["render_distance"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.432821, 1.20533, 0.101)
 visibility_range_end = 30.0
 visibility_range_end_margin = 3.0
@@ -115,7 +115,7 @@ outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 0
 
-[node name="Media" type="Label3D" parent="." groups=["render_distance"]]
+[node name="Media" type="Label3D" parent="." unique_id=1945570341 groups=["render_distance"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.137419, 0.631715, 0.101)
 visibility_range_end = 30.0
 visibility_range_end_margin = 3.0
@@ -128,7 +128,7 @@ outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 0
 
-[node name="History" type="Label3D" parent="." groups=["render_distance"]]
+[node name="History" type="Label3D" parent="." unique_id=330828849 groups=["render_distance"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.494867, 0.631715, 0.101)
 visibility_range_end = 30.0
 visibility_range_end_margin = 3.0
@@ -141,7 +141,7 @@ outline_size = 0
 horizontal_alignment = 0
 vertical_alignment = 0
 
-[node name="Search" type="Label3D" parent="." groups=["render_distance"]]
+[node name="Search" type="Label3D" parent="." unique_id=150420715 groups=["render_distance"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000550359, 0.879817, 0.101)
 visibility_range_end = 30.0
 visibility_range_end_margin = 3.0

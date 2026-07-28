@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4tcjfemplpdt"]
+[gd_scene format=3 uid="uid://c4tcjfemplpdt"]
 
 [ext_resource type="Script" uid="uid://v5y1gahbnida" path="res://scenes/items/TextItem.gd" id="1"]
 [ext_resource type="FontFile" uid="uid://g7ngd4oyyd5d" path="res://assets/fonts/CormorantGaramond/CormorantGaramond-Regular.ttf" id="2_24nnb"]
 
-[node name="TextItem" type="Node3D"]
+[node name="TextItem" type="Node3D" unique_id=1961623885]
 script = ExtResource("1")
 
-[node name="Label" type="Label3D" parent="."]
+[node name="Label" type="Label3D" parent="." unique_id=1017532010]
 visibility_range_end = 18.0
 visibility_range_end_margin = 5.0
 visibility_range_fade_mode = 1

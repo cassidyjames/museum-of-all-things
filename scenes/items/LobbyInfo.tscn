@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://brfwcf0et4c42"]
+[gd_scene format=3 uid="uid://brfwcf0et4c42"]
 
 [ext_resource type="ArrayMesh" uid="uid://dfalfeatlgtod" path="res://assets/models/lobby_plaque.obj" id="1_eagnn"]
 [ext_resource type="Material" uid="uid://b2iqa8ync4w35" path="res://assets/textures/lobby_plaque_intro_blank.tres" id="2_ggvd3"]
@@ -16,12 +16,12 @@ points = PackedVector3Array(-0.875, 0, -0.1, -0.875, 0, 0.1, -0.875, 3, -0.1, 0.
 [sub_resource type="ViewportTexture" id="ViewportTexture_ty80d"]
 viewport_path = NodePath("SubViewport")
 
-[node name="LobbyInfo" type="MeshInstance3D"]
+[node name="LobbyInfo" type="MeshInstance3D" unique_id=341765558]
 mesh = ExtResource("1_eagnn")
 surface_material_override/0 = ExtResource("2_ggvd3")
 script = ExtResource("3_r0mvh")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="." groups=["managed_light", "managed_light_skip_direction_test"]]
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=238266750 groups=["managed_light", "managed_light_skip_direction_test"]]
 transform = Transform3D(1, 0, 0, 0, 0.216542, 0.976273, 0, -0.976273, 0.216542, 0.00160336, 4.4339, 1.21375)
 light_energy = 2.0
 distance_fade_enabled = true
@@ -29,18 +29,18 @@ distance_fade_begin = 30.0
 spot_attenuation = 0.5
 spot_angle = 37.73
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2111675819]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.37975, 1.3236)
 mesh = ExtResource("4_0cdve")
 surface_material_override/0 = ExtResource("5_mr4b4")
 surface_material_override/1 = ExtResource("6_l4t2p")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1331142568]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1600829522]
 shape = SubResource("ConvexPolygonShape3D_pkvds")
 
-[node name="Sprite3D" type="Sprite3D" parent="." groups=["render_distance"]]
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1448127857 groups=["render_distance"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.24522, 0.101)
 visibility_range_end = 30.0
 visibility_range_end_margin = 3.0
@@ -50,7 +50,7 @@ double_sided = false
 texture_filter = 5
 texture = SubResource("ViewportTexture_ty80d")
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1184702273]
 disable_3d = true
 transparent_bg = true
 handle_input_locally = false
@@ -58,7 +58,7 @@ size = Vector2i(760, 1000)
 size_2d_override = Vector2i(760, 1000)
 render_target_update_mode = 1
 
-[node name="Control" type="Control" parent="SubViewport"]
+[node name="Control" type="Control" parent="SubViewport" unique_id=1122092387]
 custom_minimum_size = Vector2(380, 500)
 layout_mode = 3
 anchors_preset = 15
@@ -67,7 +67,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/Control"]
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/Control" unique_id=612586310]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

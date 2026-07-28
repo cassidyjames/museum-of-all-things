@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnqnnnet4dw12"]
+[gd_scene format=3 uid="uid://bnqnnnet4dw12"]
 
 [ext_resource type="Script" uid="uid://bdqvrwejkhthc" path="res://addons/godot-xr-tools/staging/staging.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://bqumugyvkct4r" path="res://addons/godot-xr-tools/staging/loading_screen.tscn" id="2"]
@@ -7,32 +7,32 @@
 [ext_resource type="PackedScene" uid="uid://b5x50p37g7pwi" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="6_balvx"]
 
-[node name="Staging" type="Node3D"]
+[node name="Staging" type="Node3D" unique_id=315518417]
 script = ExtResource("1")
 
-[node name="Fade" parent="." instance=ExtResource("2_htugy")]
+[node name="Fade" parent="." unique_id=1965272297 instance=ExtResource("2_htugy")]
 
-[node name="XROrigin3D" type="XROrigin3D" parent="."]
+[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=1039757622]
 
-[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=665134488]
 environment = ExtResource("3_40x3a")
 
-[node name="VRCommonShaderCache" parent="XROrigin3D/XRCamera3D" instance=ExtResource("5")]
+[node name="VRCommonShaderCache" parent="XROrigin3D/XRCamera3D" unique_id=1843944104 instance=ExtResource("5")]
 
-[node name="LeftHandController" type="XRController3D" parent="XROrigin3D"]
+[node name="LeftHandController" type="XRController3D" parent="XROrigin3D" unique_id=1274642016]
 tracker = &"left_hand"
 pose = &"aim"
 
-[node name="RightHandController" type="XRController3D" parent="XROrigin3D"]
+[node name="RightHandController" type="XRController3D" parent="XROrigin3D" unique_id=711513346]
 tracker = &"right_hand"
 pose = &"aim"
 
-[node name="LoadingScreen" parent="." instance=ExtResource("2")]
+[node name="LoadingScreen" parent="." unique_id=1304898036 instance=ExtResource("2")]
 progress = 0.0
 
-[node name="Scene" type="Node3D" parent="."]
+[node name="Scene" type="Node3D" parent="." unique_id=294204443]
 
-[node name="StartXR" parent="." instance=ExtResource("6_balvx")]
+[node name="StartXR" parent="." unique_id=954324210 instance=ExtResource("6_balvx")]
 
 [connection signal="xr_ended" from="StartXR" to="." method="_on_StartXR_xr_ended"]
 [connection signal="xr_started" from="StartXR" to="." method="_on_StartXR_xr_started"]

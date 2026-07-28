@@ -1,13 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://c02t4nwkigyxa"]
+[gd_scene format=3 uid="uid://c02t4nwkigyxa"]
 
 [ext_resource type="PackedScene" uid="uid://bhi1d8bl668hb" path="res://scenes/menu/PauseMenu.tscn" id="1_a2m62"]
 [ext_resource type="Script" uid="uid://ch8tjcbkc14gc" path="res://scenes/menu/XrMenuCanvas.gd" id="1_ow7im"]
 [ext_resource type="PackedScene" uid="uid://bw3fu2y38n3yk" path="res://scenes/menu/Settings.tscn" id="3_qn784"]
 
-[node name="XrMenuCanvas" type="CanvasLayer"]
+[node name="XrMenuCanvas" type="CanvasLayer" unique_id=878110514]
 script = ExtResource("1_ow7im")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2053481346]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -15,9 +15,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.501961)
 
-[node name="PauseMenu" parent="." instance=ExtResource("1_a2m62")]
+[node name="PauseMenu" parent="." unique_id=1605337769 instance=ExtResource("1_a2m62")]
 
-[node name="Settings" parent="." instance=ExtResource("3_qn784")]
+[node name="Settings" parent="." unique_id=1451174337 instance=ExtResource("3_qn784")]
 visible = false
 
 [connection signal="resume" from="PauseMenu" to="." method="_on_pause_menu_resume"]

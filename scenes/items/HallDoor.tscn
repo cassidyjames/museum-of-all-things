@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cy7vwbnkk3yj1"]
+[gd_scene format=3 uid="uid://cy7vwbnkk3yj1"]
 
 [ext_resource type="Script" uid="uid://iy1c1r1qcxu3" path="res://scenes/items/HallDoor.gd" id="1_elymj"]
 [ext_resource type="Material" uid="uid://1ddkd5q5infj" path="res://assets/textures/wood.tres" id="2_duu5k"]
@@ -12,41 +12,41 @@ size = Vector3(4.2, 3.9, 0.05)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pncmq"]
 points = PackedVector3Array(2, 2, 0.025, 2, 2, -0.025, -2, 2, 0.025, 2, -2, 0.025, 2, -2, -0.025, -2, 2, -0.025, -2, -2, 0.025, -2, -2, -0.025)
 
-[node name="HallDoor" type="Node3D"]
+[node name="HallDoor" type="Node3D" unique_id=1204132651]
 transform = Transform3D(0.999999, 0.00108824, -0.000152183, -0.00108825, 0.999999, -3.98627e-05, 0.000152141, 4.00259e-05, 1, 0, 0, 0)
 script = ExtResource("1_elymj")
 
-[node name="OpenSound" type="AudioStreamPlayer3D" parent="."]
+[node name="OpenSound" type="AudioStreamPlayer3D" parent="." unique_id=596822946]
 stream = ExtResource("2_t4orf")
 pitch_scale = 2.0
 bus = &"Sound"
 
-[node name="Door" type="Node3D" parent="."]
+[node name="Door" type="Node3D" parent="." unique_id=1626093127]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="DoorMesh" type="MeshInstance3D" parent="Door"]
+[node name="DoorMesh" type="MeshInstance3D" parent="Door" unique_id=428346585]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -8.95382e-11, 0.0999999, -7.27596e-12)
 mesh = SubResource("BoxMesh_bo0ln")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("2_duu5k")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Door/DoorMesh"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Door/DoorMesh" unique_id=1149217240]
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Door/DoorMesh/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door/DoorMesh/StaticBody3D" unique_id=1619511692]
 shape = SubResource("ConvexPolygonShape3D_pncmq")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Door" groups=["render_distance"]]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Door" unique_id=264369595 groups=["render_distance"]]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.03)
 visibility_range_end = 15.0
 mesh = ExtResource("3_mhnho")
 skeleton = NodePath("../DoorMesh")
 surface_material_override/0 = ExtResource("4_87ha0")
 
-[node name="LabelPivot" type="Node3D" parent="Door"]
+[node name="LabelPivot" type="Node3D" parent="Door" unique_id=791543611]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.04)
 
-[node name="Label1" type="Label3D" parent="Door/LabelPivot" groups=["render_distance"]]
+[node name="Label1" type="Label3D" parent="Door/LabelPivot" unique_id=1247202885 groups=["render_distance"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 visibility_range_end_margin = 10.0
 pixel_size = 0.001
@@ -58,7 +58,7 @@ outline_size = 0
 autowrap_mode = 3
 width = 850.0
 
-[node name="Label2" type="Label3D" parent="Door/LabelPivot" groups=["render_distance"]]
+[node name="Label2" type="Label3D" parent="Door/LabelPivot" unique_id=191700228 groups=["render_distance"]]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, -0.3, 0)
 visibility_range_end = 10.0
 pixel_size = 0.001

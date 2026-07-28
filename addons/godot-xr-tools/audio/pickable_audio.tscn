@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bikkxsbo8x7sd"]
+[gd_scene format=3 uid="uid://bikkxsbo8x7sd"]
 
 [ext_resource type="Script" uid="uid://bde46xou4bcks" path="res://addons/godot-xr-tools/audio/pickable_audio.gd" id="1_cfg1k"]
 
-[node name="PickableAudio" type="AudioStreamPlayer3D"]
+[node name="PickableAudio" type="AudioStreamPlayer3D" unique_id=1642330116]
 unit_size = 3.0
 max_db = 1.0
 max_distance = 100.0

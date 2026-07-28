@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://byb3uy8rswlaf"]
+[gd_scene format=3 uid="uid://byb3uy8rswlaf"]
 
 [ext_resource type="Script" uid="uid://dbf5cmxi6qsaj" path="res://scenes/items/RichTextItem.gd" id="1_xha8l"]
 [ext_resource type="Theme" uid="uid://cr3fyffqdk4yo" path="res://assets/resources/rich_text_theme.tres" id="2_k1xr6"]
@@ -6,10 +6,10 @@
 [sub_resource type="ViewportTexture" id="ViewportTexture_54vlm"]
 viewport_path = NodePath("SubViewport")
 
-[node name="RichTextItem" type="Node3D"]
+[node name="RichTextItem" type="Node3D" unique_id=1883819909]
 script = ExtResource("1_xha8l")
 
-[node name="Sprite3D" type="Sprite3D" parent="." groups=["render_distance"]]
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1646382189 groups=["render_distance"]]
 visibility_range_end = 30.0
 visibility_range_end_margin = 3.0
 visibility_range_fade_mode = 1
@@ -17,7 +17,7 @@ pixel_size = 0.004
 texture_filter = 5
 texture = SubResource("ViewportTexture_54vlm")
 
-[node name="SubViewport" type="SubViewport" parent="."]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=321721973]
 disable_3d = true
 transparent_bg = true
 use_occlusion_culling = true
@@ -26,9 +26,9 @@ size_2d_override = Vector2i(600, 2500)
 render_target_clear_mode = 2
 render_target_update_mode = 1
 
-[node name="Control" type="Control" parent="SubViewport"]
-clip_contents = true
+[node name="Control" type="Control" parent="SubViewport" unique_id=1202690266]
 custom_minimum_size = Vector2(600, 2500)
+clip_contents = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,7 +36,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/Control"]
+[node name="RichTextLabel" type="RichTextLabel" parent="SubViewport/Control" unique_id=911952905]
 custom_minimum_size = Vector2(512, 512)
 layout_mode = 1
 anchors_preset = -1
