@@ -15,6 +15,11 @@ func vecToRot(vec):
     return PI / 2
   return 0.0
 
+func resizeTextToPx(t, px):
+  var msg = TranslationServer.translate(t.text)
+  while t.font.get_string_size(msg, t.horizontal_alignment, -1, t.font_size).x > px:
+    t.font_size -= 1
+
 func vecToOrientation(grid, vec):
   var vec_basis = Basis.looking_at(vec.normalized())
   return grid.get_orthogonal_index_from_basis(vec_basis)
@@ -33,19 +38,50 @@ func clear_listeners(n, sig_name):
   for c in list:
     c.signal.disconnect(c.callable)
 
-func is_xr():
+func is_openxr():
   return ProjectSettings.get_setting_with_override("xr/openxr/enabled")
 
-func is_compatibility_renderer():
-  var rendering_method: String
-  if RenderingServer.has_method('get_current_rendering_method'):
-    # This will work on Godot 4.4+, and won't need the `call()` workaround either.
-    rendering_method = RenderingServer.call('get_current_rendering_method')
-  else:
-    # Not 100% reliable, because it won't be accurate if the `--rendering-method` CLI argument was used.
-    rendering_method = ProjectSettings.get_setting_with_override('rendering/renderer/rendering_method')
+func is_webxr():
+  var webxr_interface: WebXRInterface = XRServer.find_interface("WebXR")
+  return webxr_interface and webxr_interface.is_initialized()
 
-  return rendering_method == 'gl_compatibility'
+func is_xr():
+  return is_openxr() or is_webxr()
+
+func is_web():
+  return OS.get_name() == "Web"
+
+func is_mobile():
+  return OS.has_feature("mobile")
+
+func is_using_threads():
+  return OS.has_feature("threads")
+
+func is_compatibility_renderer():
+  return RenderingServer.get_current_rendering_method() == 'gl_compatibility'
+
+func is_meta_quest():
+  return OS.has_feature("meta_quest")
+
+func get_max_slots_per_exhibit() -> int:
+  # @todo Should this be a setting?
+  return 200 if (is_mobile() or is_web()) else 2500
+
+# This is a "true delay" that will only take effect on a worker thread; it will be ignored on the main thread.
+func delay_msec(msecs):
+  if OS.get_thread_caller_id() == OS.get_main_thread_id():
+    return
+  OS.delay_msec(msecs)
+
+# This is an "async delay" (needs `await`) when used on the main thread, or a "true delay" on a worker thread.
+func delay_msec_async(msecs):
+  # If on the main thread, this will `await` - otherwise, a normal delay
+  if OS.get_thread_caller_id() == OS.get_main_thread_id():
+    var main_loop = Engine.get_main_loop()
+    if main_loop is SceneTree:
+      await main_loop.create_timer(msecs / 1000.0).timeout
+  else:
+    OS.delay_msec(msecs)
 
 func normalize_url(url):
   if url.begins_with('//'):
@@ -157,12 +193,34 @@ func trim_to_length_sentence(s, lim):
       break
   return s.substr(0, pos + 1)
 
+func replace_unclosed_bbcodes(text):
+    var tag_stack = []
+    var result = text
+    var offset = 0
+    for match in bbcode_re.search_all(text):
+        var is_closing = match.get_string(1) == "/"
+        var tag_name = match.get_string(2)
+        var start_pos = match.get_start() + offset
+        var end_pos = match.get_end() + offset
+        if is_closing:
+            if tag_stack and tag_stack[-1] == tag_name:
+                tag_stack.pop_back()
+            result = result.substr(0, start_pos) + result.substr(end_pos)
+            offset -= (end_pos - start_pos)
+        else:
+            tag_stack.push_back(tag_name)
+            result = result.substr(0, start_pos) + "(" + tag_name + ")" + result.substr(end_pos)
+            offset += len("(" + tag_name + ")") - (end_pos - start_pos)
+    return result
+
+var bbcode_re = RegEx.new()
 var html_tag_re = RegEx.new()
 var display_none_re = RegEx.new()
 var markup_tag_re = RegEx.new()
 var curly_tag_re = RegEx.new()
 func _ready():
   display_none_re.compile("<.*?display:\\s*none.*?>.+?<.*?>")
+  bbcode_re.compile("\\[(\\/)?([s])\\]")
   html_tag_re.compile("<.+?>")
   markup_tag_re.compile("\\.\\w.+? ")
   curly_tag_re.compile("\\{.+?\\}")

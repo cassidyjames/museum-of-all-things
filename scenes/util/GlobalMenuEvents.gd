@@ -4,6 +4,7 @@ signal ui_cancel_pressed
 signal ui_accept_pressed
 signal hide_menu
 signal return_to_lobby
+signal _on_fullscreen_toggled(enabled: bool)
 signal set_current_room
 signal set_xr_movement_style
 signal set_movement_speed
@@ -17,6 +18,7 @@ signal reset_custom_door
 signal set_invert_y(enabled: bool)
 signal set_mouse_sensitivity(factor: float)
 signal set_joypad_deadzone(value: float)
+signal set_language(language: String)
 
 func emit_ui_cancel_pressed():
   emit_signal("ui_cancel_pressed")
@@ -32,6 +34,9 @@ func emit_return_to_lobby():
 
 func emit_set_current_room(room):
   emit_signal("set_current_room", room)
+
+func emit_on_fullscreen_toggled(enabled):
+  emit_signal("_on_fullscreen_toggled", enabled)
 
 func emit_set_xr_movement_style(style):
   emit_signal("set_xr_movement_style", style)
@@ -68,3 +73,6 @@ func emit_set_mouse_sensitivity(factor: float):
 
 func emit_set_joypad_deadzone(value: float):
   emit_signal("set_joypad_deadzone", value)
+
+func emit_set_language(language: String):
+  emit_signal("set_language", language)

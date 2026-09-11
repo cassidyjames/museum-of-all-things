@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="LobbyData" format=3 uid="uid://dhihvritp3bgd"]
+
+[ext_resource type="Script" uid="uid://bdc8jjijlgjox" path="res://resource_definitions/LobbyData.gd" id="1_3ssej"]
+[ext_resource type="Script" uid="uid://ch3nm32ndlrbh" path="res://resource_definitions/LobbyWing.gd" id="2_y4oc8"]
+
+[sub_resource type="Resource" id="Resource_pgwi2"]
+script = ExtResource("2_y4oc8")
+name = "Technologie"
+corner_1 = Vector2(-68, -44)
+corner_2 = Vector2(-32, -8)
+exhibits = PackedStringArray("Voiture-pilote", "Minox", "Transistor", "Poterie", "Godot (moteur de jeu)", "Pasteurisation", "Essai nucléaire", "Adhésif", "Aqueduc", "Trois dimensions", "Avion", "Machine simple", "Presse typographique", "Contraception", "Microscopie", "Console de jeux vidéo", "Trébuchet", "Élevage", "Oldowayen")
+
+[sub_resource type="Resource" id="Resource_ooopd"]
+script = ExtResource("2_y4oc8")
+name = "Culture"
+corner_1 = Vector2(32, -44)
+corner_2 = Vector2(68, -8)
+exhibits = PackedStringArray("Clown", "Dragon", "Épicerie", "High five", "Goncharov (mème)", "Café", "Soupe", "The Backrooms", "Tarot", "K-pop", "Go (jeu)", "Hindouisme", "Dandy", "Golem", "Chant de marins", "Publicité", "Déluge", "Moine")
+
+[sub_resource type="Resource" id="Resource_m2ope"]
+script = ExtResource("2_y4oc8")
+name = "Science"
+corner_1 = Vector2(-44, -92)
+corner_2 = Vector2(-8, -36)
+exhibits = PackedStringArray("Fungi", "Dinosaures", "Biodiversité marine", "Terre", "Quadrangle d\'Arabia", "Rat", "Crevette", "Arbre à pain", "Visualisation de données", "Or", "Baobab", "Homo sapiens", "Pendule (physique)", "Dimorphisme sexuel", "Lumière", "Fromage", "Chou commun", "Zone humide", "Nycticèbes", "Papillon", "Jupiter (planète)", "Sol (pédologie)", "Fractale", "Œil")
+
+[sub_resource type="Resource" id="Resource_opuc1"]
+script = ExtResource("2_y4oc8")
+name = "Géographie"
+corner_1 = Vector2(8, -92)
+corner_2 = Vector2(44, -36)
+exhibits = PackedStringArray("États-Unis", "Antarctique", "Patagonie", "Tibet", "Persépolis", "Pétra", "Taipei 101", "Colline", "Architecture à Bristol", "Chongqing", "Îles Pitcairn", "Fosse des Mariannes", "Transsibérien", "Lancaster (Ohio)", "Lac Tchad", "Sénégal", "Bora-Bora", "Landes de Gascogne", "Kilimandjaro", "Canberra", "Forêt amazonienne", "Wharfe", "Uruk", "Pierre noire (islam)")
+
+[sub_resource type="Resource" id="Resource_qiy1c"]
+script = ExtResource("2_y4oc8")
+name = "Art"
+corner_1 = Vector2(-72, 12)
+corner_2 = Vector2(-36, 48)
+exhibits = PackedStringArray("Peinture baroque", "José Rizal", "Architecture arménienne", "Pablo Picasso", "Musée du Louvre", "Joan Miró", "Ai Weiwei", "Frida Kahlo", "Käthe Kollwitz", "Frank Lloyd Wright", "Edgar Degas", "Art pariétal", "Michel-Ange", "Francisco de Goya", "Fauvisme", "Graffiti", "Sculpture grecque antique", "Maurits Cornelis Escher", "Georges Seurat")
+
+[sub_resource type="Resource" id="Resource_l5mfx"]
+script = ExtResource("2_y4oc8")
+name = "Personnalités"
+corner_1 = Vector2(36, 12)
+corner_2 = Vector2(72, 48)
+exhibits = PackedStringArray("Liste des souverains de Pologne", "Albert Einstein", "Freddie Mercury", "Kobe Bryant", "Gengis Khan", "Raspoutine", "Public Universal Friend", "Tupac Shakur", "Luigi Mangione", "William Shakespeare", "Linus Pauling", "Danny DeVito", "J. R. R. Tolkien", "Mary Shelley", "Alexandria Ocasio-Cortez", "Ibn Battûta", "Martin Luther", "Martin Luther King")
+
+[sub_resource type="Resource" id="Resource_bycfx"]
+script = ExtResource("2_y4oc8")
+name = "Histoire"
+corner_1 = Vector2(-48, 60)
+corner_2 = Vector2(-12, 96)
+exhibits = PackedStringArray("Histoire de l\'Allemagne", "Catastrophe nucléaire de Tchernobyl", "Titanic", "Contre-culture des années 1960", "Code de Nuremberg", "Pandémie de Covid-19", "Central Intelligence Agency", "Âge d\'or de l\'Islam", "Alunissage", "Séisme de 1906 à San Francisco", "Passage des Alpes par Hannibal", "Drake–Kendrick Lamar feud", "Histoire de la photographie", "Dave Matthews Band (incident à Chicago)", "Accusation de meurtre rituel", "Royaume d\'Oyo", "Piraterie", "Manifestations de 2019-2020 à Hong Kong")
+
+[sub_resource type="Resource" id="Resource_yimja"]
+script = ExtResource("2_y4oc8")
+name = "Médias"
+corner_1 = Vector2(12, 60)
+corner_2 = Vector2(48, 96)
+exhibits = PackedStringArray("Bible", "The Beatles", "Matrix (film)", "Odyssée", "Gilgamesh", "En attendant Godot", "Homestuck", "Star Trek", "Barbie (film)", "Neon Genesis Evangelion", "Hamlet", "Les Colons de Catane", "Twitter", "Vogue", "Steamboat Willie", "Le Comte de Monte-Cristo", "Wikipédia", "Minecraft")
+
+[resource]
+script = ExtResource("1_3ssej")
+wings = Array[ExtResource("2_y4oc8")]([SubResource("Resource_pgwi2"), SubResource("Resource_ooopd"), SubResource("Resource_m2ope"), SubResource("Resource_opuc1"), SubResource("Resource_qiy1c"), SubResource("Resource_l5mfx"), SubResource("Resource_bycfx"), SubResource("Resource_yimja")])

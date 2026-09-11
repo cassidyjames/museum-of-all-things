@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dyw0howbtdh86"]
+
+[ext_resource type="Script" uid="uid://ohhsk1h00dpl" path="res://scenes/SplashVR.gd" id="1_4enco"]
+[ext_resource type="Texture2D" uid="uid://cf7dy454eb0db" path="res://assets/logo/moat_logo_large_white.png" id="2_4enco"]
+
+[sub_resource type="Environment" id="Environment_cgbrl"]
+background_mode = 1
+ambient_light_source = 1
+reflected_light_source = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_lshak"]
+size = Vector2(4.3, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6017"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("2_4enco")
+
+[node name="SplashVR" type="Node3D" unique_id=1816183551]
+script = ExtResource("1_4enco")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=55711782]
+environment = SubResource("Environment_cgbrl")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=2064432161]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=1863774824]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=861279477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.45519e-11, 1.5, -5)
+mesh = SubResource("QuadMesh_lshak")
+surface_material_override/0 = SubResource("StandardMaterial3D_e6017")
+
+[node name="StartTimer" type="Timer" parent="." unique_id=1573139618]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

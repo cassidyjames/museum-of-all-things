@@ -7,6 +7,7 @@ signal exit_added(exit)
 @onready var small_planter_scene = preload("res://scenes/items/SmallPlanter.tscn")
 @onready var hall = preload("res://scenes/Hall.tscn")
 @onready var grid_wrapper = preload("res://scenes/util/GridWrapper.tscn")
+@onready var sliding_hall_divider = preload("res://scenes/items/SlidingHallDivider.tscn")
 
 @onready var _rng
 @onready var title
@@ -95,7 +96,6 @@ func get_item_slot():
     return null
 
 func generate(
-    grid,
     params,
   ):
   # set initial fields
@@ -112,10 +112,9 @@ func generate(
   _exit_limit = params.exit_limit if params.has("exit_limit") else 1e10
 
   # init grid
-  _raw_grid = grid
   _grid = grid_wrapper.instantiate()
-  _grid.init(_raw_grid)
   add_child(_grid)
+  _raw_grid = _grid._grid
 
   # init rng
   _rng = RandomNumberGenerator.new()
@@ -127,7 +126,7 @@ func generate(
   var starting_hall = hall.instantiate()
   add_child(starting_hall)
   starting_hall.init(
-    _raw_grid,
+    _grid,
     prev_title,
     title,
     start_pos + (Vector3.DOWN * hall_type[1]),
@@ -201,8 +200,15 @@ func _create_next_room_candidate(last_room):
 
   _grid.reserve_zone(hall_bounds)
   _grid.reserve_zone(room_bounds)
+
   room_obj.bounds = room_bounds
   room_obj.hall = hall_bounds
+  room_obj.last_room = {
+    "center": last_room.center,
+    "width": last_room.width,
+    "length": last_room.length,
+  }
+
   _next_room_candidates.append(room_obj)
 
 func _add_to_room_list(c, w, l):
@@ -218,11 +224,39 @@ func add_room():
   if len(_next_room_candidates) == 0:
     push_error("no room candidate to create")
     return
+  if _item_slots.size() > Util.get_max_slots_per_exhibit():
+    return
 
   var idx = _rng.randi() % len(_next_room_candidates)
   var room = _next_room_candidates.pop_at(idx)
 
   _grid.free_reserved_zone(room.center)
+
+  # calculate edge of previous room to place sliding hall divider
+  if "last_room" in room:
+    var room_dir = (room.center - room.last_room.center).normalized()
+    var hall_width = 1 + (room.hall[1].x - room.hall[0].x if room_dir.z != 0 else room.hall[1].z - room.hall[0].z)
+    var divider = sliding_hall_divider.instantiate()
+    var last_room_bounds = room_to_bounds(room.last_room.center, room.last_room.width, room.last_room.length)
+
+    if room_dir.z != 0:
+      var z_center = last_room_bounds[0].z if room_dir.z < 0 else last_room_bounds[1].z
+      divider.global_position = Util.gridToWorld(0.5 * room_dir + Vector3(
+        (room.hall[1].x + room.hall[0].x) / 2.0,
+        room.center.y,
+        z_center))
+    else:
+      var x_center = last_room_bounds[0].x if room_dir.x < 0 else last_room_bounds[1].x
+      divider.global_position = Util.gridToWorld(0.5 * room_dir + Vector3(
+        x_center,
+        room.center.y,
+        (room.hall[1].z + room.hall[0].z) / 2.0))
+
+    divider.scale.x = hall_width
+    divider.rotation.y = (PI / 2 if room_dir.z == 0 else 0)
+    divider.rotation.y += (PI if room_dir.x > 0 or room_dir.z > 0 else 0)
+    add_child(divider)
+    divider.init()
 
   _add_to_room_list(room.center, room.width, room.length)
   carve_room(room.hall[0], room.hall[1], _y)
@@ -388,7 +422,7 @@ func decorate_wall_tile(pos):
       var hall_type = valid_halls[_rng.randi() % len(valid_halls)]
       add_child(new_hall)
       new_hall.init(
-        _raw_grid,
+        _grid,
         title,
         title,
         wall,

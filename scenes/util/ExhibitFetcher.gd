@@ -10,48 +10,58 @@ signal commons_images_complete(category, context)
 
 const MAX_BATCH_SIZE = 50
 const REQUEST_DELAY_MS = 1000
-const COMMONS_IMAGE_LIMIT = 2500
 
 # TODO: wikimedia support, and category support
 const WIKIMEDIA_COMMONS_PREFIX = "https://commons.wikimedia.org/wiki/"
-const WIKIPEDIA_PREFIX = "https://wikipedia.org/wiki/"
 const WIKIDATA_PREFIX = "https://www.wikidata.org/wiki/"
 
 const WIKIDATA_COMMONS_CATEGORY = "P373"
 const WIKIDATA_COMMONS_GALLERY = "P935"
 
-var search_endpoint = "https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srprop=title&srsearch="
-var random_endpoint = "https://en.wikipedia.org/w/api.php?action=query&format=json&generator=random&grnnamespace=0&prop=info"
+var lang = TranslationServer.get_locale()
+var wikipedia_prefix = "https://" + lang + ".wikipedia.org/wiki/"
+var search_endpoint = "https://" + lang + ".wikipedia.org/w/api.php?action=query&format=json&list=search&srprop=title&origin=*&srsearch="
+var random_endpoint = "https://" + lang + ".wikipedia.org/w/api.php?action=query&format=json&generator=random&grnnamespace=0&prop=info&origin=*"
 
-var wikitext_endpoint = "https://en.wikipedia.org/w/api.php?action=query&prop=revisions|extracts|pageprops&ppprop=wikibase_item&explaintext=true&rvprop=content&format=json&redirects=1&titles="
-var images_endpoint = "https://en.wikipedia.org/w/api.php?action=query&prop=imageinfo&iiprop=extmetadata|url&iiurlwidth=640&iiextmetadatafilter=LicenseShortName|Artist&format=json&redirects=1&titles="
-var wikidata_endpoint = "https://www.wikidata.org/w/api.php?action=wbgetclaims&format=json&entity="
+var wikitext_endpoint = "https://" + lang + ".wikipedia.org/w/api.php?action=query&prop=revisions|extracts|pageprops&ppprop=wikibase_item&explaintext=true&rvprop=content&format=json&redirects=1&origin=*&titles="
+var images_endpoint = "https://" + lang + ".wikipedia.org/w/api.php?action=query&prop=imageinfo&iiprop=extmetadata|url&iiurlwidth=640&iiextmetadatafilter=LicenseShortName|Artist&format=json&redirects=1&origin=*&titles="
+var wikidata_endpoint = "https://www.wikidata.org/w/api.php?action=wbgetclaims&uselang=" + lang + "&format=json&origin=*&entity="
 
-var wikimedia_commons_category_images_endpoint = "https://commons.wikimedia.org/w/api.php?action=query&generator=categorymembers&gcmtype=file&gcmlimit=max&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=640&iiextmetadatafilter=Artist|LicenseShortName&format=json&gcmtitle="
-var wikimedia_commons_gallery_images_endpoint = "https://commons.wikimedia.org/w/api.php?action=query&generator=images&gimlimit=max&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=640&iiextmetadatafilter=Artist|LicenseShortName&format=json&titles="
+var wikimedia_commons_category_images_endpoint = "https://commons.wikimedia.org/w/api.php?action=query&uselang=" + lang + "&generator=categorymembers&gcmtype=file&gcmlimit=max&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=640&iiextmetadatafilter=Artist|LicenseShortName&format=json&origin=*&gcmtitle="
+var wikimedia_commons_gallery_images_endpoint = "https://commons.wikimedia.org/w/api.php?action=query&uselang=" + lang + "&generator=images&gimlimit=max&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=640&iiextmetadatafilter=Artist|LicenseShortName&format=json&origin=*&titles="
 
 var _fs_lock = Mutex.new()
 var _results_lock = Mutex.new()
 var _results = {}
 
-var _network_request_thread = Thread.new()
+var _network_request_thread: Thread
 var NETWORK_QUEUE = "Network"
 
 func _ready():
-  _network_request_thread.start(_network_request_thread_loop)
+  if Util.is_using_threads():
+    _network_request_thread = Thread.new()
+    _network_request_thread.start(_network_request_thread_loop)
 
 func _exit_tree():
   WorkQueue.set_quitting()
-  _network_request_thread.wait_to_finish()
+  if _network_request_thread:
+    _network_request_thread.wait_to_finish()
 
 func _delayed_advance_queue():
-  OS.delay_msec(REQUEST_DELAY_MS)
+  Util.delay_msec(REQUEST_DELAY_MS)
 
 func _network_request_thread_loop():
   while not WorkQueue.get_quitting():
+    _network_request_item()
+
+func _process(delta: float):
+  if not Util.is_using_threads():
+    _network_request_item()
+
+func _network_request_item():
     var item = WorkQueue.process_queue(NETWORK_QUEUE)
     if not item:
-      continue
+      return
     elif item[0] == "fetch_wikitext":
       _fetch_wikitext(item[1], item[2])
     elif item[0] == "fetch_search":
@@ -66,6 +76,16 @@ func _network_request_thread_loop():
       _fetch_wikidata(item[1], item[2])
     elif item[0] == "fetch_continue":
       _dispatch_request(item[1], item[2], item[3])
+
+func set_language(language: String):
+  wikipedia_prefix = "https://" + language + ".wikipedia.org/wiki/"
+  search_endpoint = "https://" + language + ".wikipedia.org/w/api.php?action=query&format=json&list=search&srprop=title&origin=*&srsearch="
+  random_endpoint = "https://" + language + ".wikipedia.org/w/api.php?action=query&format=json&generator=random&grnnamespace=0&prop=info&origin=*"
+  wikitext_endpoint = "https://" + language + ".wikipedia.org/w/api.php?action=query&prop=revisions|extracts|pageprops&ppprop=wikibase_item&explaintext=true&rvprop=content&format=json&redirects=1&origin=*&titles="
+  images_endpoint = "https://" + language + ".wikipedia.org/w/api.php?action=query&prop=imageinfo&iiprop=extmetadata|url&iiurlwidth=640&iiextmetadatafilter=LicenseShortName|Artist&format=json&redirects=1&origin=*&titles="
+  wikidata_endpoint = "https://www.wikidata.org/w/api.php?action=wbgetclaims&uselang=" + language + "&format=json&origin=*&entity="
+  wikimedia_commons_category_images_endpoint = "https://commons.wikimedia.org/w/api.php?action=query&uselang=" + language + "&generator=categorymembers&gcmtype=file&gcmlimit=max&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=640&iiextmetadatafilter=Artist|LicenseShortName&format=json&origin=*&gcmtitle="
+  wikimedia_commons_gallery_images_endpoint = "https://commons.wikimedia.org/w/api.php?action=query&uselang=" + language + "&generator=images&gimlimit=max&prop=imageinfo&iiprop=url|extmetadata&iiurlwidth=640&iiextmetadatafilter=Artist|LicenseShortName&format=json&origin=*&titles="
 
 func fetch(titles, ctx):
   # queue wikitext fetch in front of queue to improve next exhibit load time
@@ -98,7 +118,9 @@ func _get_location_header(headers):
 func _join_titles(titles):
   return "|".join(titles.map(func(t): return t.uri_encode()))
 
-func _read_from_cache(title, prefix=WIKIPEDIA_PREFIX):
+func _read_from_cache(title, prefix=wikipedia_prefix):
+  if Util.is_web():
+    return null
   _fs_lock.lock()
   var json = DataManager.load_json_data(prefix + title)
   _fs_lock.unlock()
@@ -108,7 +130,7 @@ func _read_from_cache(title, prefix=WIKIPEDIA_PREFIX):
     _results_lock.unlock()
   return json
 
-func _get_uncached_titles(titles, prefix=WIKIPEDIA_PREFIX):
+func _get_uncached_titles(titles, prefix = wikipedia_prefix):
   var new_titles = []
   for title in titles:
     if title == "":
@@ -226,13 +248,18 @@ func get_result(title):
 
 func _dispatch_request(url, ctx, caller_ctx):
   ctx.url = url
-  var result = RequestSync.request(url)
 
-  if result[0] != OK:
-    push_error("failed to send http request ", result[0], " ", url)
-    _delayed_advance_queue()
+  var handle_result = func(result):
+    if result[0] != OK:
+      push_error("failed to send http request ", result[0], " ", url)
+      _delayed_advance_queue()
+    else:
+      _on_request_completed_wrapper(result[0], result[1], result[2], result[3], ctx, caller_ctx)
+
+  if Util.is_web():
+    RequestSync.request_async(url).completed.connect(handle_result)
   else:
-    _on_request_completed_wrapper(result[0], result[1], result[2], result[3], ctx, caller_ctx)
+    handle_result.call(RequestSync.request(url))
 
 func _set_page_field(title, field, value):
   _results_lock.lock()
@@ -330,7 +357,7 @@ func _dispatch_continue(continue_fields, base_url, titles, ctx, caller_ctx):
   _fetch_continue(continue_url, ctx, caller_ctx, ctx.queue)
   return false
 
-func _cache_all(titles, prefix=WIKIPEDIA_PREFIX):
+func _cache_all(titles, prefix = wikipedia_prefix):
   for title in titles:
     var result = get_result(title)
     if result != null:
@@ -434,17 +461,17 @@ func _on_commons_images_request_complete(res, ctx, caller_ctx):
         if info.has("thumburl"):
           _set_page_field(file, "src", info.thumburl)
         file_batch.append(file)
-        _append_page_field(ctx.category, "images", [ file ])
+        _append_page_field(ctx.category, "images", [file])
 
   if len(file_batch) > 0:
     _cache_all(file_batch, WIKIMEDIA_COMMONS_PREFIX)
     call_deferred("emit_signal", "commons_images_complete", file_batch, caller_ctx)
 
   # handle continues
-  if res.has("continue") and len(get_result(ctx.category).images) <= COMMONS_IMAGE_LIMIT:
+  if res.has("continue") and len(get_result(ctx.category).images) <= Util.get_max_slots_per_exhibit():
     return _dispatch_continue(res.continue, _get_commons_url(ctx.category), ctx.category, ctx, caller_ctx)
   else:
-    _cache_all([ ctx.category ], WIKIMEDIA_COMMONS_PREFIX)
+    _cache_all([ctx.category], WIKIMEDIA_COMMONS_PREFIX)
     return true
 
 func _on_wikidata_request_complete(res, ctx, caller_ctx):
@@ -463,7 +490,7 @@ func _on_wikidata_request_complete(res, ctx, caller_ctx):
         var value = claim.mainsnak.datavalue.value
         _set_page_field(ctx.entity, "commons_gallery", value)
 
-  _cache_all([ ctx.entity ], WIKIDATA_PREFIX)
+  _cache_all([ctx.entity], WIKIDATA_PREFIX)
   call_deferred("emit_signal", "wikidata_complete", ctx.entity, caller_ctx)
   return true
 
